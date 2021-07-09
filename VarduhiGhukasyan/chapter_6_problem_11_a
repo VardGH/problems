@@ -1,0 +1,30 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int Months[12]{ 31, 28, 31, 30, 31 ,30, 31, 31, 30, 31, 30, 31 };
+
+void Show(int& day, int& month, int year)
+{
+	if (day == 1) {
+		if (month == 1) {
+			month = 12;
+			year--;
+		}
+		else month--;
+		day = Months[month - 1];
+	}
+	else day--;
+	
+	cout << (day < 10 ? "0" : "") << day << "/"
+	<< (month << 10 ? "0" : "") << month << "/"
+	<< year;
+}
+
+int main()
+{
+	int day = 1, month = 5, year = 2001;
+	Show(day, month, year);
+
+	return 0;
+}
